@@ -1,0 +1,57 @@
+Hackpad stats
+
+<br/>
+
+**Global stats**
+
+<br/>
+
+Total pads: <%= data.totalPads %> 
+
+<br/>
+
+**Most active contributors**
+
+<br/>
+
+<% function outputContributor(item) { %>
+<tr>
+	<td><%= item.name %></td>
+	<td><%= item.freq %></td>
+</tr>
+<% } %>
+
+<% function outputPad(item) { %>
+<tr>
+	<td><a href="<%= item.padId %>"><%= item.padTitle %></a></td>
+	<td><%= item.padEdits %></td>
+</tr>
+<% } %>
+
+<table>
+<tr>
+	<th>Contributor</th>
+	<th>Edits</th>
+</tr>
+<% data.mostActiveContributors.map(outputContributor) %>
+</table>
+
+<br/>
+
+**Most edited pads**
+
+<br/>
+
+<table>
+<tr>
+	<th>Pad</th>
+	<th>Edits</th>
+</tr>
+<% data.mostActivePads.map(outputPad) %>
+</table>
+
+<br/>
+
+Last published: <%= data.timestamp %> 
+
+<br/>
